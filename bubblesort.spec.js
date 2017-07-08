@@ -23,4 +23,13 @@ describe('Bubble Sort', function () {
   it('works for worst peformance case ', function () {
     expect(bubbleSort([42, 23, 16, 15, 8, 4])).toEqual([4, 8, 15, 16, 23, 42])
   })
+
+  it('works for random array', function () {
+    var arr = Array(Math.floor(Math.random() * 25))
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = Math.floor(Math.random() * 200)
+    }
+
+    expect(bubbleSort(arr)).toEqual(arr.sort((a, b) => a - b))
+  })
 })
