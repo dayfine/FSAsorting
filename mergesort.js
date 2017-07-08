@@ -4,16 +4,15 @@ function split (wholeArray) {
 }
 
 function merge (arr1, arr2) {
-  var ret = []
-  while (arr1.length > 0 && arr2.length > 0) {
-    if (arr1[0] < arr2[0]) {
-      ret.push(arr1.shift())
+  var ret = [], arr1pt = 0, arr2pt = 0
+  while (arr1pt < arr1.length && arr2pt < arr2.length) {
+    if (arr1[arr1pt] < arr2[arr2pt]) {
+      ret.push(arr1[arr1pt++])
     } else {
-      ret.push(arr2.shift())
+      ret.push(arr2[arr2pt++])
     }
   }
-
-  return ret.concat(arr1).concat(arr2)
+  return ret.concat(arr1.slice(arr1pt)).concat(arr2.slice(arr2pt))
 }
 
 function mergeSort (array) {
