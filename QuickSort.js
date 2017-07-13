@@ -1,3 +1,4 @@
+/*
 function quickSort(arr) {
   if (arr.length <= 1) return arr
   let
@@ -22,3 +23,39 @@ function quickSort(arr) {
 
   return ret
 }
+*/
+
+function quickSort(arr, low, high) {
+  if (low===0 && high===0) return arr
+  low = low || 0
+  high = high || arr.length - 1
+
+  if (low < high) {
+    pi = partition(arr, low, high)
+    quickSort(arr, low, pi-1)
+    quickSort(arr, pi+1, high)
+  }
+
+  return arr
+}
+
+function partition(arr, low, high) {
+  var i = low - 1, j = low, pivot = arr[high]
+  for ( ; j < high; j++ ){
+    if (arr[j] <= pivot) {
+      i++
+      swap(i, j, arr)
+    }
+  }
+  i++
+  swap(i, high, arr)
+  return i
+}
+
+// function swap (a, b, arr) {
+//   if (a < b) {
+//     var temp = arr[b]
+//     arr[b] = arr[a]
+//     arr[a] = temp
+//   }
+// }

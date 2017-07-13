@@ -12,7 +12,9 @@ function bubbleSort (arr) {
 }
 
 function swap (a, b, arr) {
-  var temp = arr[b]
-  arr[b] = arr[a]
-  arr[a] = temp
+  if (a < b) {
+    var temp = arr[b]
+    arr[b] = arr[a]
+    arr[a] = temp
+  }
 }
